@@ -1,0 +1,190 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//= require animate
+//= require font-awesome
+//= require helper
+//= require bootstrap
+//= require material-design-iconic-font
+//= require toastr.min
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html, body {
+    height: 100%;
+}
+body {
+    font-family: Roboto;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 1.42857;
+    color: rgba(0,0,0,0.75);
+    background-color: #F3F4F7;
+}
+body {
+    margin: 0;
+}
+
+.clear-page.blurred-dashboard {
+    background: asset-data-url("blurred-dashboard.jpg") no-repeat center center fixed #1F3B5D;
+    background-size: cover;
+}
+
+.clear-page {
+    padding-top: 50px;
+    min-height: 100%;
+    background-color: #182848;
+    background-image: -webkit-linear-gradient(-360deg, #2a5e82 10%, #182848 90%);
+    background-image: linear-gradient(90deg, #2a5e82 10%, #182848 90%);
+}
+
+.dark {
+    color: white;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: #46AEDA;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+
+h3, .h3 {
+    font-size: 1.4em;
+    font-weight: 300;
+    margin: .8em 0;
+}
+.spacer20 {
+    width: 100%;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: block;
+    height: 20px;
+}
+
+.fill-white {
+    background-color: white !important;
+}
+.m-l-r-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+.m400 {
+    max-width: 400px;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+h2, .h2 {
+    font-size: 2.2em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: relative;
+    margin: .8em 0;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+.spacer10 {
+    width: 100%;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: block;
+    height: 10px;
+}
+
+.btn.btn-success, .fields-list .select2-container .btn-success.select2-choice {
+    border: none;
+    background-color: #32B28C;
+    color: white;
+    border-radius: 2px;
+}
+
+.clear-page label {
+    font-weight: normal;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 4px 0 0;
+    margin-top: 1px \9;
+    line-height: normal;
+}
+
+.color-white {
+    color: white !important;
+}
+
+.spacer30 {
+    width: 100%;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: block;
+    height: 30px;
+}
+
+.m900 {
+    max-width: 900px;
+}
+
+.color-secondary {
+    color: #FA3870 !important;
+}
+
+
+.btn-static-primary {
+    background-color: #FA3870;
+    color: white;
+    box-shadow: none;
+    position: relative;
+    border: none;
+}
+
+.btn:hover, .fields-list .select2-container .select2-choice:hover, .btn:focus, .fields-list .select2-container .select2-choice:focus, .btn.focus, .fields-list .select2-container .focus.select2-choice {
+    color: #777;
+    text-decoration: none;
+}
+
+.btn-static-primary:hover {
+    color: white;
+    background-color: #fb5182;
+}
+
+.spacer40 {
+    width: 100%;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: block;
+    height: 40px;
+}
+
+.icon-fw, [class^="icon-"], [class*=" icon-"] {
+    width: 1.28571em;
+    text-align: center;
+}
+
+.sign-up-infos h4 {
+    color: #555555;
+}
