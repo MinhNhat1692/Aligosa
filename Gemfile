@@ -14,7 +14,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
-gem 'paperclip'
+gem 'paperclip', '~> 5.2.0'
 gem 'react-rails'
 
 # Use mysql as the database for Active Record
