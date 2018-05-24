@@ -3,63 +3,68 @@
       loading: false
       type: 1
       data: @props.data
-      task: @props.task #11 - employee
+      phase: 1
+      phasetype: 1
+      task: @props.task #11 - customer
       toggled: false
       timelong: '24h'
       DataMenu:
         name: "Dữ liệu"
         records: [
-          {code: 11, icon: 'zmdi zmdi-accounts-alt', name: 'Danh sách nhân viên'}
-          {code: 12, icon: 'zmdi zmdi-storage', name: 'Danh sách phòng'}
-          {code: 13, icon: 'zmdi zmdi-tag', name: 'Danh sách chức vụ'}
-          {code: 14, icon: 'fa fa-trophy', name: 'Danh sách dịch vụ'}
-          {code: 15, icon: 'zmdi zmdi-tag-more', name: 'Định chức vụ cho nhân viên'}
-          {code: 16, icon: 'fa fa-tags', name: 'Định dịch vụ cho từng phòng'}
+          {code: 11, icon: 'zmdi zmdi-accounts-alt', name: 'Danh sách khách hàng'}
+          {code: 12, icon: 'zmdi zmdi-storage', name: 'Danh sách dự án'}
+          {code: 13, icon: 'zmdi zmdi-tag', name: 'Danh sách tác vụ'}
+          #{code: 14, icon: 'fa fa-trophy', name: 'Danh sách dự án'} # unused
+          #{code: 15, icon: 'zmdi zmdi-tag-more', name: 'Định chức vụ cho nhân viên'} # unused
+          #{code: 16, icon: 'fa fa-tags', name: 'Định dịch vụ cho từng phòng'} # unused
         ]
-      PatientMenu:
-        name: "Bệnh nhân"
+      ProcessMenu:
+        name: "Tác vụ"
         records: [
-          {code: 31, icon: 'zmdi zmdi-accounts-alt', name: 'Danh sách bệnh nhân'}
-          {code: 32, icon: 'fa fa-id-card-o', name: 'Danh sách phiếu khám'}
-          {code: 33, icon: 'fa fa-list-alt', name: 'Thông tin điều trị'}
-          {code: 34, icon: 'fa fa-book', name: 'Thông tin khám'}
+          {code: 31, icon: 'zmdi zmdi-accounts-alt', name: 'Tìm kiếm khách hàng', phase: 1}
+          {code: 32, icon: 'fa fa-id-card-o', name: 'Lựa chọn tác vụ', phase: 2}
+          {code: 33, icon: 'fa fa-list-alt', name: 'Tìm kiếm dự án', phase: 3}
+          {code: 34, icon: 'fa fa-book', name: 'Lựa chọn thiết kế', phase: 4}
+          {code: 35, icon: 'fa fa-book', name: 'Kiểm tra thông tin', phase: 5, phasetype: 1}
+          {code: 36, icon: 'fa fa-book', name: 'Thiết kế', phase: 5, phasetype: 2}
+          {code: 37, icon: 'fa fa-book', name: 'Kết thúc', phase: 6}
         ]
-      PharmacyMenu:
-        name: "Thuốc"
-        records: [
-          {code: 41, icon: 'fa fa-address-book', name: 'Nguồn cấp thuốc'}
-          {code: 42, icon: 'fa fa-building', name: 'Doanh nghiệp sản xuất'}
-          {code: 43, icon: 'fa fa-newspaper-o', name: 'Mẫu thuốc'}
-          {code: 44, icon: '', name: 'Hóa đơn nhập thuốc'}
-          {code: 45, icon: '', name: 'Thông tin thuốc nhập kho'}
-          {code: 46, icon: '', name: 'Thông tin giá thuốc'}
-          {code: 47, icon: '', name: 'Đơn thuốc ngoài'}
-          {code: 48, icon: '', name: 'Thông tin thuốc kê ngoài'}
-          {code: 49, icon: '', name: 'Đơn thuốc trong'}
-          {code: 50, icon: '', name: 'Thông tin thuốc kê trong'}
-          {code: 51, icon: '', name: 'Thống kê kho thuốc'}
-        ]
-      SummaryMenu:
-        name: "Thống kê"
-        records: [
-          {code: 80, icon: 'fa fa-medkit', name: 'Thuốc'}
-          {code: 81, icon: 'fa fa-building', name: 'Khám bệnh'}
-          {code: 82, icon: 'fa fa-diamond', name: 'Tổng quan'}
-        ]
-      DoctorMenu:  
-        name: "Bác sỹ",
-        records: [
-          {code: 60, active: false, name: 'Thống kê'}
-          {code: 63, active: false, name: 'Trình quản lý phòng'}
-        ]
-      ApiMenu:  
-        name: "ApiKey",
-        records: [
-        ]
-      TeamMenu:  
-        name: "Phân quyền",
-        records: [
-        ]
+      #PharmacyMenu:
+      #  name: "Thiết kế"
+      #  records: [
+      #    {code: 41, icon: 'fa fa-address-book', name: 'Mẫu email'}
+      #    {code: 42, icon: 'fa fa-building', name: 'Mẫu tài liệu'}
+      #    {code: 43, icon: 'fa fa-newspaper-o', name: 'New'} # unused
+      #    {code: 44, icon: '', name: 'Hóa đơn nhập thuốc'} # unused
+      #    {code: 45, icon: '', name: 'Thông tin thuốc nhập kho'} # unused
+      #    {code: 46, icon: '', name: 'Thông tin giá thuốc'} # unused
+      #    {code: 47, icon: '', name: 'Đơn thuốc ngoài'} # unused
+      #    {code: 48, icon: '', name: 'Thông tin thuốc kê ngoài'} # unused
+      #    {code: 49, icon: '', name: 'Đơn thuốc trong'} # unused
+      #    {code: 50, icon: '', name: 'Thông tin thuốc kê trong'} # unused
+      #    {code: 51, icon: '', name: 'Thống kê kho thuốc'} # unused
+      #  ]
+      #SummaryMenu:
+      #  name: "Thống kê"
+      #  records: [
+      #    {code: 80, icon: 'fa fa-medkit', name: 'Khách hàng'} 
+      #    {code: 81, icon: 'fa fa-building', name: 'Dự án'}
+      #    {code: 82, icon: 'fa fa-diamond', name: 'Tương tác'}
+      #  ]
+      #DoctorMenu:  
+      #  name: "Cộng tác viên",
+      #  records: [
+      #    {code: 60, active: false, name: 'Thống kê'}
+      #    {code: 63, active: false, name: 'Trình quản lý cộng tác viên'}
+      #  ]
+      #ApiMenu:  
+      #  name: "ApiKey",
+      #  records: [
+      #  ]
+      #TeamMenu:  
+      #  name: "Phân quyền",
+      #  records: [
+      #  ]
     componentWillMount: ->
       $(APP).on 'rebuilmain', ((e) ->
         @setState
@@ -69,20 +74,20 @@
       ).bind(this)
     TriggerCode: (code) ->
       switch code
-        when 11 #employee
+        when 11 #customer
           data =
             task: 11
-            link: '/employee/list'
+            link: '/customer/list'
           @handleGetdata(data)
-        when 12 #room
+        when 12 #project
           data =
             task: 12
-            link: '/room/list'
+            link: '/project/list'
           @handleGetdata(data)
-        when 13 #position
+        when 13 #task
           data =
             task: 13
-            link: '/position/list'
+            link: '/task/list'
           @handleGetdata(data)
         when 14 #service
           data =
@@ -102,7 +107,8 @@
         when 31 #customer_record
           data =
             task: 31
-            link: '/customer_record/list'
+            link: '/customer/list'
+            #link: '/customer_record/list'
           @handleGetdata(data)
         when 32 #order_map
           data =
@@ -267,13 +273,13 @@
               React.DOM.i className: 'fa fa-cog fa-spin fa-3x'
         else
           React.createElement Support, data: @state.data
-    Employee: ->
+    Customer: ->
       React.DOM.section id: 'content',
         React.createElement MainHeader, data: @state.DataMenu, task: @state.task, Trigger: @TriggerCode, datatype: 1
         if @state.loading
           React.createElement MainPart, data: @state.data, datatype: 'loading' 
         else
-          React.createElement MainPart, data: @state.data, datatype: 'employee' 
+          React.createElement MainPart, data: @state.data, datatype: 'customer' 
     Position: ->
       React.DOM.section id: 'content',
         React.createElement MainHeader, data: @state.DataMenu, task: @state.task, Trigger: @TriggerCode, datatype: 1
@@ -281,13 +287,13 @@
           React.createElement MainPart, data: @state.data, datatype: 'loading' 
         else
           React.createElement MainPart, data: @state.data, datatype: 'position'
-    Room: ->
+    Project: ->
       React.DOM.section id: 'content',
         React.createElement MainHeader, data: @state.DataMenu, task: @state.task, Trigger: @TriggerCode, datatype: 1
         if @state.loading
           React.createElement MainPart, data: @state.data, datatype: 'loading' 
         else
-          React.createElement MainPart, data: @state.data, datatype: 'room'
+          React.createElement MainPart, data: @state.data, datatype: 'project'
     Service: ->
       React.DOM.section id: 'content',
         React.createElement MainHeader, data: @state.DataMenu, task: @state.task, Trigger: @TriggerCode, datatype: 1
@@ -309,13 +315,13 @@
           React.createElement MainPart, data: @state.data, datatype: 'loading' 
         else
           React.createElement MainPart, data: @state.data, datatype: 'sermap'
-    CustomerRecord: ->
+    ProcessMenuSearchCustomer: ->
       React.DOM.section id: 'content',
-        React.createElement MainHeader, data: @state.PatientMenu, task: @state.task, Trigger: @TriggerCode, datatype: 2
+        React.createElement MainHeader, data: @state.ProcessMenu, phase: @state.phase, phasetype: @state.phasetype, task: @state.task, Trigger: @TriggerCode, datatype: 3
         if @state.loading
           React.createElement MainPart, data: @state.data, datatype: 'loading' 
         else
-          React.createElement MainPart, data: @state.data, datatype: 'customer_record' #31
+          React.createElement MainPart, data: @state.data, datatype: 'customer_search' #31
     OrderMap: ->
       React.DOM.section id: 'content',
         React.createElement MainHeader, data: @state.PatientMenu, task: @state.task, Trigger: @TriggerCode, datatype: 2
@@ -468,9 +474,9 @@
         when 5
           @Support()
         when 11
-          @Employee()
+          @Customer()
         when 12
-          @Room()
+          @Project()
         when 13
           @Position()
         when 14
@@ -484,7 +490,7 @@
         when 22
           @ServiceMap()
         when 31
-          @CustomerRecord()
+          @ProcessMenuSearchCustomer()
         when 32
           @OrderMap()
         when 33

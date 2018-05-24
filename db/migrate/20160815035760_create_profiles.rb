@@ -6,16 +6,15 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.string :lname
       t.date :dob
       t.integer :gender
-      t.integer :country
-      t.integer :city
-      t.integer :province
       t.string :address
+      t.string :email
       t.string :pnumber
       t.string :noid
       t.date :issue_date
       t.string :issue_place
       t.string :avatar
-
+      t.string :signature
+      t.string :brandname
       t.timestamps
     end
   end

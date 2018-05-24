@@ -18,26 +18,28 @@
                   .input-group
                     %span.input-group-addon
                       %i.fa.fa-user.icon-fw
-                    = f.text_field :sname, class: 'form-control', placeholder: 'Tên phòng khám'
+                    = f.text_field :sname, class: 'form-control', placeholder: 'Tên thương hiệu BĐS'
                 .form-group.password.optional.user_password
                   .input-group
                     %span.input-group-addon
-                      %i.fa.fa-envelope.icon-fw
+                      %i.fa.fa-map-marker.icon-fw
                     = f.text_field :address, class: 'form-control', placeholder: 'Địa chỉ'
                 .form-group.password.optional.user_password
                   .input-group
                     %span.input-group-addon
-                      %i.fa.fa-lock.icon-fw
+                      %i.fa.fa-mobile.icon-fw
                     = f.text_field :pnumber, class: 'form-control', placeholder: 'Số điện thoại'
                 .form-group.password.optional.user_password
                   .input-group
                     %span.input-group-addon
-                      %i.fa.fa-lock.icon-fw
+                      %i.fa.fa-globe.icon-fw
                     = f.text_field :hpage, class: 'form-control', placeholder: 'Trang chủ'
                 .form-group.password.optional.user_password
+                  %p
+                    Ảnh đại diện - Logo
                   .input-group
                     %span.input-group-addon
-                      %i.fa.fa-lock.icon-fw
+                      %i.fa.fa-picture-o.icon-fw
                     = f.file_field :logo
                 .spacer20
                 %button.btn.btn-lg.btn-block.btn-static-primary{:type => "submit"}
@@ -69,8 +71,8 @@
             .spacer10
             %h4.text-center Bản miễn phí cho sinh viên
             %ul.text-center.list-unstyled.small
-              %li 500 bản ghi
-              %li Không hỗ trợ thống kê, báo cáo
+              %li 50 khách hàng
+              %li Số lượng dự án hạn chế
               %li
                 %a{:href => "/pricing", :target => "_blank"} bạn có thể nâng cấp tài khoản nếu muốn
             .spacer40

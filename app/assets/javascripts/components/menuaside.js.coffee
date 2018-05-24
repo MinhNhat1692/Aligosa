@@ -127,7 +127,7 @@
         React.DOM.div className: 'tabbable',
           React.DOM.ul className: "nav nav-tabs",
             for submenu in @props.data.records
-              React.createElement SubMenuHeader, key: submenu.code, task: @props.task, submenu: submenu, Trigger: @TriggerCode
+              React.createElement SubMenuHeader, key: submenu.code, task: @props.task, submenu: submenu, type: 2, Trigger: @TriggerCode
     HasSubmenuAndRequest: ->
       React.DOM.div className: 'dashboard-header',
         React.DOM.h1 null, @props.data.name
@@ -147,15 +147,25 @@
         React.DOM.div className: 'tabbable',
           React.DOM.ul className: "nav nav-tabs",
             for submenu in @props.data.records
-              React.createElement SubMenuHeader, key: submenu.code, task: @props.task, submenu: submenu, Trigger: @TriggerCode  
+              React.createElement SubMenuHeader, key: submenu.code, task: @props.task, submenu: submenu, type: 2, Trigger: @TriggerCode  
+    HasPhaseSubmenu: ->
+      React.DOM.div className: 'dashboard-header',
+        React.DOM.h1 null, @props.data.name
+        React.DOM.div className: 'tabbable',
+          React.DOM.ul className: "nav nav-tabs",
+            for submenu in @props.data.records
+              React.createElement SubMenuHeader, key: submenu.code, task: @props.task, submenu: submenu, type: 1, phase: @props.phase, Trigger: @TriggerCode
     render: ->
       switch @props.datatype
         when 1
           @HasSubmenu()
         when 2
           @HasSubmenuAndRequest()
+        when 3
+          @HasPhaseSubmenu()
 
 @SubMenuHeader = React.createClass
+    #type 1 = phasemenu, type 2 = normalmenu
     Trigger: (e) ->
       @props.Trigger @props.submenu.code
     SubMenuRender: ->
@@ -169,5 +179,49 @@
           React.DOM.a null,
             React.DOM.i className: @props.submenu.icon
             @props.submenu.name
+    SubMenuPhaseRender: ->
+      if @props.submenu.code == @props.task
+        if @props.submenu.phase > 1
+          React.DOM.li className: 'active', onClick: @Trigger,
+            React.DOM.a null,
+              React.DOM.i className: 'fa fa-chevron-right'
+              React.DOM.i className: @props.submenu.icon
+              @props.submenu.name
+        else
+          React.DOM.li className: 'active', onClick: @Trigger,
+            React.DOM.a null,
+              React.DOM.i className: @props.submenu.icon
+              @props.submenu.name
+      else
+        if @props.submenu.phase < @props.phase
+          if @props.submenu.phase > 1
+            React.DOM.li className: '', onClick: @Trigger,
+              React.DOM.a null,
+                React.DOM.i className: 'fa fa-chevron-right'
+                React.DOM.i className: @props.submenu.icon
+                @props.submenu.name
+          else
+            React.DOM.li className: '', onClick: @Trigger,
+              React.DOM.a null,
+                React.DOM.i className: @props.submenu.icon
+                @props.submenu.name
+        else
+          if @props.submenu.phase == @props.phase
+            React.DOM.div style: {'display':'none'}
+          else
+            if @props.submenu.phase > 1
+              React.DOM.li className: 'disabled',
+                React.DOM.a null,
+                  React.DOM.i className: 'fa fa-chevron-right'
+                  React.DOM.i className: @props.submenu.icon
+                  @props.submenu.name
+            else
+              React.DOM.li className: 'disabled',
+                React.DOM.a null,
+                  React.DOM.i className: @props.submenu.icon
+                  @props.submenu.name
     render: ->
-      @SubMenuRender()
+      if @props.type == 1
+        @SubMenuPhaseRender()
+      else
+        @SubMenuRender()

@@ -4,7 +4,6 @@ class CreateEmployees < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.references :station, foreign_key: true
       t.string :ename
-      t.integer :country
       t.integer :city
       t.integer :province
       t.string :address
@@ -16,7 +15,6 @@ class CreateEmployees < ActiveRecord::Migration[5.0]
       t.boolean :activated
       t.datetime :activated_at
       t.date :time_end
-
       t.timestamps
     end
   end

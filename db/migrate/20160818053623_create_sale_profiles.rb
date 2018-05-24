@@ -1,15 +1,15 @@
-class CreateDoctorProfiles < ActiveRecord::Migration[5.0]
+class CreateSaleProfiles < ActiveRecord::Migration[5.0]
   def change
-    create_table :doctor_profiles do |t|
+    create_table :sale_profiles do |t|
       t.references :user, foreign_key: true
       t.string :fname
       t.string :lname
       t.date :dob
       t.integer :gender
-      t.integer :country
       t.integer :city
       t.integer :province
       t.string :address
+      t.string :email
       t.string :pnumber
       t.string :noid
       t.date :issue_date
@@ -20,7 +20,6 @@ class CreateDoctorProfiles < ActiveRecord::Migration[5.0]
       t.string :activation_digest
       t.boolean :activated
       t.datetime :activated_at
-
       t.timestamps
     end
   end

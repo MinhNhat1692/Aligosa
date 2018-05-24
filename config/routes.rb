@@ -123,18 +123,31 @@ Rails.application.routes.draw do
   post '/medicine_supplier/search', to: 'medicine_supplier#search'
   post '/medicine_supplier/find', to: 'medicine_supplier#find'
 
-  post '/employee/add_record', to: 'employee#add_record'
-  post '/employee/link_record', to: 'employee#link_record'
-  post '/employee/update_record', to: 'employee#update_record'
-  post '/employee/clear_link_record', to: 'employee#clear_link_record'
-  post '/employee/find_record', to: 'employee#find_record'
-  post '/employee/search', to: 'employee#search'
-  post '/employee/find', to: 'employee#find'
-  post '/employee/list', to: 'employee#list'
-  post '/employee', to: 'employee#create'
-  delete '/employee', to: 'employee#destroy'
-  put '/employee', to: 'employee#update'
-  get '/employee_activation', to: 'employee#activate'
+  post '/customer/add_record', to: 'customer#add_record'
+  post '/customer/link_record', to: 'customer#link_record'
+  post '/customer/update_record', to: 'customer#update_record'
+  post '/customer/clear_link_record', to: 'customer#clear_link_record'
+  post '/customer/find_record', to: 'customer#find_record'
+  post '/customer/search', to: 'customer#search'
+  post '/customer/find', to: 'customer#find'
+  post '/customer/list', to: 'customer#list'
+  post '/customer', to: 'customer#create'
+  delete '/customer', to: 'customer#destroy'
+  put '/customer', to: 'customer#update'
+  get '/customer_activation', to: 'customer#activate'
+
+	post '/customer_search/add_record', to: 'customer#add_record'
+  post '/customer_search/link_record', to: 'customer#link_record'
+  post '/customer_search/update_record', to: 'customer#update_record'
+  post '/customer_search/clear_link_record', to: 'customer#clear_link_record'
+  post '/customer_search/find_record', to: 'customer#find_record'
+  post '/customer_search/search', to: 'customer#search'
+  post '/customer_search/find', to: 'customer#find'
+  post '/customer_search/list', to: 'customer#list'
+  post '/customer_search', to: 'customer#create'
+  delete '/customer_search', to: 'customer#destroy'
+  put '/customer_search', to: 'customer#update'
+  get '/customer_search_activation', to: 'customer#activate'
 
   delete '/customer_record', to: 'customer_record#destroy'
   put '/customer_record', to: 'customer_record#update'
@@ -170,12 +183,12 @@ Rails.application.routes.draw do
   post '/posmap/search', to: 'position_mapping#search'
   post '/posmap/find', to: 'position_mapping#find'
 
-  put '/room', to: 'room#update'
-  post '/room', to: 'room#create'
-  delete '/room', to: 'room#destroy'
-  post '/room/list', to: 'room#list'
-  post '/room/search', to: 'room#search'
-  post '/room/find', to: 'room#find'
+  put '/project', to: 'project#update'
+  post '/project', to: 'project#create'
+  delete '/project', to: 'project#destroy'
+  post '/project/list', to: 'project#list'
+  post '/project/search', to: 'project#search'
+  post '/project/find', to: 'project#find'
 
   put '/position', to: 'position#update'
   delete '/position', to: 'position#destroy'
@@ -190,9 +203,9 @@ Rails.application.routes.draw do
   get '/station', to: 'station#new'
   post '/station',   to: 'station#create'
 
-  get '/dprofile', to: 'doctor_profile#new'
-  post '/dprofile',   to: 'doctor_profile#create'
-  post '/dprofile/update', to: 'doctor_profile#update'
+  get '/saleprofile', to: 'sale_profile#new'
+  post '/saleprofile',   to: 'sale_profile#create'
+  post '/saleprofile/update', to: 'sale_profile#update'
 
   root "home#index"
   get '/changelogs', to: 'home#changelog'
@@ -263,10 +276,15 @@ Rails.application.routes.draw do
   get 'api/services/:key', to: 'demo_api#list_service'
   get 'api/getResult/:key', to: 'demo_api#get_result'
 
+	get 'auth/:provider/callback', to: 'sessions#create'
+	get 'auth/failure', to: redirect('/')
+	get 'signout', to: 'sessions#destroy', as: 'signout'
+
+
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :doctor_profile
+  resources :sale_profile
   resources :station
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

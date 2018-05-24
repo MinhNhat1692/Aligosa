@@ -5,11 +5,11 @@ class HomeController < ApplicationController
 			@user = current_user
 		  @has_profile = has_profile?
 		  @has_station = has_station?
-		  @has_dprofile = has_doctor_profile?
+		  @has_saleprofile = has_sale_profile?
 		else
       @has_profile = false
 		  @has_station = false
-		  @has_dprofile = false
+		  @has_saleprofile = false
     end
   end
   
@@ -18,13 +18,13 @@ class HomeController < ApplicationController
 			@user = current_user
 		  @has_profile = has_profile?
 		  @has_station = has_station?
-		  @has_dprofile = has_doctor_profile?
+		  @has_saleprofile = has_sale_profile?
 		  @lcl = CLog.all().group(:d_a).order(d_a: :desc)
 		  @records = CLog.all().order(d_a: :desc)
 		else
       @has_profile = false
 		  @has_station = false
-		  @has_dprofile = false
+		  @has_saleprofile = false
 		  @lcl = CLog.all().group(:d_a).order(d_a: :desc)
 		  @records = CLog.all().order(d_a: :desc)
     end
@@ -42,14 +42,14 @@ class HomeController < ApplicationController
 			@user = current_user
 		  @has_profile = has_profile?
 		  @has_station = has_station?
-		  @has_dprofile = has_doctor_profile?
+		  @has_saleprofile = has_sale_profile?
 		  @headers = NewsHeader.where("cat = ?", 1).order(updated_at: :desc).limit(100)
 		  @recommend = NewsHeader.where("cat = ? and recomend = ?", 1, true).order(updated_at: :desc).limit(5)
 		  @mostview = NewsHeader.where("cat = ?", 1).order(view: :desc).limit(5)
 		else
       @has_profile = false
 		  @has_station = false
-		  @has_dprofile = false
+		  @has_saleprofile = false
 		  @headers = NewsHeader.where("cat = ?", 1).order(updated_at: :desc).limit(100)
 		  @recommend = NewsHeader.where("cat = ? and recomend = ?", 1, true).order(updated_at: :desc).limit(5)
 		  @mostview = NewsHeader.where("cat = ?", 1).order(view: :desc).limit(5)
@@ -74,11 +74,11 @@ class HomeController < ApplicationController
 			@user = current_user
 		  @has_profile = has_profile?
 		  @has_station = has_station?
-		  @has_dprofile = has_doctor_profile?
+		  @has_saleprofile = has_sale_profile?
 		else
       @has_profile = false
 		  @has_station = false
-		  @has_dprofile = false
+		  @has_saleprofile = false
     end
   end
   
@@ -87,11 +87,11 @@ class HomeController < ApplicationController
 			@user = current_user
 		  @has_profile = has_profile?
 		  @has_station = has_station?
-		  @has_dprofile = has_doctor_profile?
+		  @has_saleprofile = has_sale_profile?
 		else
       @has_profile = false
 		  @has_station = false
-		  @has_dprofile = false
+		  @has_saleprofile = false
     end
   end
   
@@ -100,11 +100,11 @@ class HomeController < ApplicationController
 			@user = current_user
 		  @has_profile = has_profile?
 		  @has_station = has_station?
-		  @has_dprofile = has_doctor_profile?
+		  @has_saleprofile = has_sale_profile?
 		else
       @has_profile = false
 		  @has_station = false
-		  @has_dprofile = false
+		  @has_saleprofile = false
     end
   end
   
@@ -113,11 +113,11 @@ class HomeController < ApplicationController
 			@user = current_user
 		  @has_profile = has_profile?
 		  @has_station = has_station?
-		  @has_dprofile = has_doctor_profile?
+		  @has_saleprofile = has_sale_profile?
 		else
       @has_profile = false
 		  @has_station = false
-		  @has_dprofile = false
+		  @has_saleprofile = false
     end
   end
   
@@ -135,11 +135,11 @@ class HomeController < ApplicationController
 			@user = current_user
 		  @has_profile = has_profile?
 		  @has_station = has_station?
-		  @has_dprofile = has_doctor_profile?
+		  @has_saleprofile = has_sale_profile?
 		else
       @has_profile = false
 		  @has_station = false
-		  @has_dprofile = false
+		  @has_saleprofile = false
     end
   end
   
@@ -148,7 +148,7 @@ class HomeController < ApplicationController
 			@user = current_user
 		  @has_profile = has_profile?
 		  @has_station = has_station?
-		  @has_dprofile = has_doctor_profile?
+		  @has_saleprofile = has_sale_profile?
 		  @cat = DocCat.all()
 		  @sub = DocSub.all()
 		  if params.has_key?(:sub_id)
@@ -159,7 +159,7 @@ class HomeController < ApplicationController
 		else
       @has_profile = false
 		  @has_station = false
-		  @has_dprofile = false
+		  @has_saleprofile = false
 		  @cat = DocCat.all()
 		  @sub = DocSub.all()
 		  if params.has_key?(:sub_id)

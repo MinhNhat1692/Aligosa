@@ -40,7 +40,7 @@
                       .input-group
                         %span.input-group-addon
                           %i.fa.fa-user.icon-fw
-                        = f.collection_select :gender, Gender.where(lang: "vi"), :id, :name, {prompt: "Giới tính"}, {class: "form-control", value: @pro.gender}
+                        = f.collection_select :gender, Gender.all, :id, :name, {prompt: "Giới tính"}, {class: "form-control", value: @pro.gender}
                 .row
                   .col-md-5.col-md-offset-1
                     .form-group.email.optional.user_email
@@ -75,6 +75,8 @@
                           %i.fa.fa-user.icon-fw
                         = f.text_field :pnumber, class: 'form-control', value: @pro.pnumber, placeholder: 'Số điện thoại', 'data-placement': 'bottom'
                   .col-md-5
+                    %p
+                      Ảnh đại diện
                     .form-group.email.optional.user_email
                       .input-group
                         = f.file_field :avatar

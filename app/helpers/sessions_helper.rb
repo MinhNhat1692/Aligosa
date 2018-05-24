@@ -50,14 +50,14 @@ module SessionsHelper
         !current_profile.nil?
     end
     
-    def current_doctor_profile
+    def current_sale_profile
         if (user_id = session[:user_id])
-            @current_doctor_profile ||= DoctorProfile.find_by(user_id: user_id)
+            @current_sale_profile ||= SaleProfile.find_by(user_id: user_id)
         end
     end
     
-    def has_doctor_profile?
-        !current_doctor_profile.nil?
+    def has_sale_profile?
+        !current_sale_profile.nil?
     end
     
     def has_station?
